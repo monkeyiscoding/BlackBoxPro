@@ -162,23 +162,25 @@
             </div>
         </div>
         
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-gray-900 pb-4">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="text-indigo-200 block px-3 py-2 text-base font-medium border-l-4 border-indigo-500">Home</a>
-                <a href="#features" class="text-gray-400 hover:text-white block px-3 py-2 text-base font-medium">Features</a>
-                <a href="#specs" class="text-gray-400 hover:text-white block px-3 py-2 text-base font-medium">Specs</a>
-                <a href="#dealers" class="text-gray-400 hover:text-white block px-3 py-2 text-base font-medium">Dealers</a>
-                <a href="#contact" class="text-gray-400 hover:text-white block px-3 py-2 text-base font-medium">Contact</a>
-                <button class="mt-2 w-full bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-4 py-2 rounded-md font-medium transition duration-300">
-                    <i class="fas fa-shopping-cart mr-2"></i> Order Now
-                </button>
-            </div>
-        </div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden lg:hidden bg-gray-900 pb-4 rounded-lg shadow-lg transition-transform transform scale-95 origin-top">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+        <a href="#home" class="menu-item text-indigo-200 block px-3 py-2 text-base font-medium border-l-4 border-indigo-500 transition duration-300 hover:bg-gray-800 rounded-md">Home</a>
+        <a href="#features" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Features</a>
+        <a href="#specs" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Specs</a>
+        <a href="#dealers" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Dealers</a>
+        <a href="#contact" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Contact</a>
+        <button class="mt-2 w-full bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-4 py-2 rounded-md font-medium transition duration-300 transform hover:scale-105" id="order-button">
+            <i class="fas fa-shopping-cart mr-2"></i> Order Now
+        </button>
+    </div>
+</div>
+
     </nav>
 <!-- Hero Section -->
 <section id="home" class="hero-glow">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 md:pt-10 lg:pt-20 py-20 md:py-28">
+
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
                 <span class="inline-block bg-gray-800 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-lg">
@@ -201,44 +203,35 @@
                     </button>
                 </div>
 
-                <!-- Dialog -->
-                <div id="videoModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div class="modal-content bg-gray-800 rounded-lg p-6 max-w-lg w-full">
-                        <span class="close-button text-white cursor-pointer float-right">&times;</span>
-                        <h2 class="text-2xl text-white mb-4">Video Demo</h2>
-                        <video width="100%" controls>
-                            <source src="your-video-url.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <div class="specs mt-4">
-                            <h3 class="text-lg text-white">Specifications:</h3>
-                            <ul class="text-gray-400">
-                                <li><i class="icon-power">🔌</i> Power: 1000W</li>
-                                <li><i class="icon-size">📏</i> Size: 10 x 5 x 2 inches</li>
-                                <li><i class="icon-weight">⚖️</i> Weight: 2 lbs</li>
-                                <li><i class="icon-material">🛠️</i> Material: High-Quality Aluminum</li>
-                                <li><i class="icon-color">🎨</i> Color Options: Black, White, Silver</li>
-                                <li><i class="icon-warranty">🛡️</i> Warranty: 2 Years</li>
-                                <li><i class="icon-feature">✨</i> Special Features: Fast Charging, LED indicators</li>
-                            </ul>
-                        </div>
-                        <div class="card-details mt-4">
-                            <h3 class="text-lg text-white">More Details:</h3>
-                            <div class="card">
-                                <h4 class="text-white"><i class="icon-key">🔑</i> Key Benefits:</h4>
-                                <p class="text-gray-400">Experience high efficiency and reliability with the Black Box Pro, designed for both consumers and professionals.</p>
-                            </div>
-                            <div class="card">
-                                <h4 class="text-white"><i class="icon-safe">🔒</i> Safety Features:</h4>
-                                <p class="text-gray-400">Equipped with overcharge protection and short circuit prevention for optimal safety.</p>
-                            </div>
-                            <div class="card">
-                                <h4 class="text-white"><i class="icon-support">💬</i> Customer Support:</h4>
-                                <p class="text-gray-400">24/7 customer support available to assist with any issues or inquiries.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- Dialog -->
+<div id="videoModal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4">
+  <div class="bg-gray-900 rounded-xl p-6 w-full max-w-md md:max-w-lg shadow-2xl">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-xl text-white font-semibold">Black Box Pro Demo</h2>
+      <span id="closeModal" class="close-button  text-2xl cursor-pointer hover:text-gray-400">&times;</span>
+    </div>
+
+    <div class="rounded-lg overflow-hidden">
+      <video class="w-full rounded-md" controls>
+        <source src="your-video-url.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <div class="mt-4">
+      <h3 class="text-white text-lg font-semibold">Video Title</h3>
+      <p class="text-sm text-gray-400">12.4K views · 1 Year ago</p>
+      <p class="text-gray-300 text-sm mt-2">
+        Experience high efficiency and reliability with the Black Box Pro, designed for both consumers and professionals.
+      </p>
+    </div>
+
+   
+    <button id="closeModalBtn" class="mt-6 w-full text-center bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-md transition">
+      Close
+    </button>
+  </div>
+</div>
 
                 <div class="mt-10 flex flex-wrap gap-6">
                     <div class="flex items-center">
@@ -313,11 +306,16 @@
         </div>
     </div>
 
-    <!-- Modal for All Brands -->
-    <div id="allBrandsModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="modal-content bg-gray-800 rounded-lg p-6 max-w-7xl w-full">
-            <span class="close-button text-white cursor-pointer float-right">&times;</span>
-            <h2 class="text-2xl text-white mb-4">All Compatible Brands</h2>
+
+ <!-- Modal for All Brands -->
+<div id="allBrandsModal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center px-4">
+  <div style="padding-top: 0px;" class="modal-content bg-gray-900 rounded-lg p-4 sm:p-6 w-full max-w-7xl max-h-[90vh] overflow-y-auto shadow-2xl">
+    
+    <!-- Modal Header -->
+    <div style="margin-top: 16px; height: 50px;" class="flex justify-between items-center mb-4 sticky top-0 bg-gray-900 z-10">
+      <h2 class="text-lg sm:text-2xl text-white font-semibold">All Compatible Brands</h2>
+      <span id="closeAllBrandsModal" class="close-button text-white text-2xl cursor-pointer hover:text-gray-400">&times;</span>
+    </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
                 <!-- All Brand Logos -->
                 <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
@@ -512,6 +510,85 @@
             </div>
         </div>
     </section>
+    <!-- Download Section -->
+<section id="download" class="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Download Black Box Pro</h2>
+      <p class="text-xl text-gray-300 max-w-3xl mx-auto">Get the latest version of our powerful MCU programming software for Windows</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <!-- Download Card -->
+      <div class="bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-700 hover:border-indigo-500 transition-all duration-300">
+        <div class="flex items-center mb-6">
+          <div class="bg-indigo-600 p-3 rounded-lg mr-4">
+            <i class="fas fa-download text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white">Windows Software</h3>
+        </div>
+        
+        <div class="space-y-4 mb-6">
+          <div class="flex items-center">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-gray-300">Version 2.4.1 (Latest)</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-gray-300">Windows 10/11 Compatible</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-check text-green-400 mr-3"></i>
+            <span class="text-gray-300">File Size: 85.4 MB</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium text-center transition duration-300">
+            <i class="fas fa-download mr-2"></i> Download Now
+          </a>
+          <a href="#" class="flex-1 border border-gray-600 hover:border-indigo-400 text-gray-300 hover:text-white px-6 py-3 rounded-lg font-medium text-center transition duration-300">
+            <i class="fas fa-book mr-2"></i> Documentation
+          </a>
+        </div>
+      </div>
+
+      <!-- System Requirements -->
+      <div class="bg-gray-800 rounded-2xl p-8 shadow-xl border border-gray-700">
+        <h3 class="text-2xl font-bold text-white mb-6">System Requirements</h3>
+        <ul class="space-y-4">
+          <li class="flex items-start">
+            <i class="fas fa-microchip text-indigo-400 mt-1 mr-3"></i>
+            <span class="text-gray-300"><span class="font-medium text-white">Processor:</span> Intel Core i3 or equivalent</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-memory text-indigo-400 mt-1 mr-3"></i>
+            <span class="text-gray-300"><span class="font-medium text-white">RAM:</span> 2GB minimum (4GB recommended)</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-hdd text-indigo-400 mt-1 mr-3"></i>
+            <span class="text-gray-300"><span class="font-medium text-white">Storage:</span> 500MB free space</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fab fa-windows text-indigo-400 mt-1 mr-3"></i>
+            <span class="text-gray-300"><span class="font-medium text-white">OS:</span> Windows 10/11 64-bit</span>
+          </li>
+          <li class="flex items-start">
+            <i class="fas fa-plug text-indigo-400 mt-1 mr-3"></i>
+            <span class="text-gray-300"><span class="font-medium text-white">USB:</span> 3.0 port required</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Additional Info -->
+    <div class="mt-12 text-center text-gray-400">
+      <p class="mb-4">Need help with installation? <a href="#" class="text-indigo-400 hover:text-indigo-300">View our setup guide</a></p>
+      <p>Looking for older versions? <a href="#" class="text-indigo-400 hover:text-indigo-300">Visit our archive</a></p>
+    </div>
+  </div>
+</section>
+
 
     <!-- Specifications Section -->
     <section id="specs" class="py-20 bg-gray-900">

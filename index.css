@@ -18,3 +18,40 @@
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
 }
+
+/* Add this CSS to your styles */
+#mobile-menu {
+    transition: transform 0.3s ease-in-out;
+}
+
+#mobile-menu.open {
+    transform: translateX(0);
+}
+
+#mobile-menu.closed {
+    transform: translateX(-100%);
+}
+
+/* CSS for the mobile menu */
+#mobile-menu {
+    transition: transform 0.3s ease-in-out; /* Smooth transition for the transform property */
+}
+
+.hidden {
+    display: none; /* Hide the menu when not in use */
+}
+
+.translate-y-0 {
+    transform: translateY(0); /* Position the menu in view */
+}
+
+.-translate-y-full {
+    transform: translateY(-100%); /* Move the menu out of view */
+}
+
+.menu-item {
+    @apply flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-lg transition-all duration-300;
+}
+.menu-item i {
+    @apply w-6 text-center mr-3;
+}
