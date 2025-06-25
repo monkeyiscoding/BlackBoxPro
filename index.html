@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Box Pro | Advanced MCU Programmer for Inverter AC PCBs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        :root {
+            --primary: #6d28d9;
+            --secondary: #3b82f6;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+        
+        .hero-glow {
+            background: radial-gradient(circle at center, rgba(109, 40, 217, 0.2) 0%, rgba(15, 23, 42, 1) 60%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.5) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .neon-shadow {
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        
+        .glow-effect {
+            position: relative;
+        }
+        
+        .glow-effect:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: inherit;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .glow-effect:hover:after {
+            opacity: 1;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .input-group input,
+        .input-group textarea {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .hero-glow {
+                padding: 20px 0;
+            }
+            .card {
+                padding: 16px;
+            }
+            .input-group input,
+            .input-group textarea {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-gray-900 bg-opacity-80 backdrop-blur-md sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center">
+                            <div style="background-color: transparent;" class="bg-indigo-700 p-2 rounded-md neon-shadow">
+                               <img src="https://firebasestorage.googleapis.com/v0/b/qphix-training-193c9.appspot.com/o/Tests%2Flogo-removebg-preview.png?alt=media&token=c38ca775-d37c-4266-8ae0-4521b582aff8" alt="" style="width: 40px;">
+                            </div>
+                            <span class="ml-3 text-xl font-bold text-white">Black Box <span class="gradient-text">Pro</span></span>
+                        </div>
+                    </div>
+                    <div class="hidden lg:ml-8 lg:flex lg:space-x-8">
+                        <a href="#home" class="text-indigo-200 hover:text-white px-3 py-2 text-sm font-medium border-b-2 border-indigo-500">Home</a>
+                        <a href="#features" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Features</a>
+                        <a href="#specs" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Specs</a>
+                        <a href="#dealers" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Dealers</a>
+                        <a href="#contact" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="hidden lg:flex items-center">
+                    <button id="cta-nav" class="bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-6 py-2 rounded-md font-medium transition duration-300 glow-effect flex items-center">
+                        <i class="fas fa-shopping-cart mr-2"></i> Order Now
+                    </button>
+                </div>
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-gray-400 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-900 pb-4">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#home" class="text-indigo-200 block px-3 py-2 text-base font-medium border-l-4 border-indigo-500">Home</a>
+                <a href="#features" class="text-gray-400 hover:text-white block px-3 py-2 text-base font-medium">Features</a>
+                <a href="#specs" class="text-gray-400 hover:text-white block px-3 py-2 text-base font-medium">Specs</a>
+                <a href="#dealers" class="text-gray-400 hover:text-white block px-3 py-2 text-base font-medium">Dealers</a>
+                <a href="#contact" class="text-gray-400 hover:text-white block px-3 py-2 text-base font-medium">Contact</a>
+                <button class="mt-2 w-full bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-4 py-2 rounded-md font-medium transition duration-300">
+                    <i class="fas fa-shopping-cart mr-2"></i> Order Now
+                </button>
+            </div>
+        </div>
+    </nav>
+<!-- Hero Section -->
+<section id="home" class="hero-glow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-block bg-gray-800 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold mb-4 shadow-lg">
+                    MCU Programming Revolution
+                </span>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    <span class="text-white">Advanced Programmer</span> 
+                    <br>
+                    <span class="gradient-text">for Inverter AC PCBs</span>
+                </h1>
+                <p class="text-lg text-gray-300 mb-8 max-w-lg">
+                    The Black Box Pro offers unparalleled programming capabilities for HVAC microcontroller units with cutting-edge technology and reliability.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-8 py-3 rounded-lg font-medium shadow-lg transition duration-300 glow-effect flex items-center">
+                        <i class="fas fa-shopping-cart mr-2"></i> Purchase Now
+                    </button>
+                    <button class="bg-gray-800 text-gray-300 hover:bg-gray-700 px-8 py-3 rounded-lg font-medium shadow-lg transition duration-300 flex items-center" id="playButton">
+                        <i class="fas fa-play-circle mr-2"></i> Watch Demo
+                    </button>
+                </div>
+
+                <!-- Dialog -->
+                <div id="videoModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div class="modal-content bg-gray-800 rounded-lg p-6 max-w-lg w-full">
+                        <span class="close-button text-white cursor-pointer float-right">&times;</span>
+                        <h2 class="text-2xl text-white mb-4">Video Demo</h2>
+                        <video width="100%" controls>
+                            <source src="your-video-url.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="specs mt-4">
+                            <h3 class="text-lg text-white">Specifications:</h3>
+                            <ul class="text-gray-400">
+                                <li><i class="icon-power">🔌</i> Power: 1000W</li>
+                                <li><i class="icon-size">📏</i> Size: 10 x 5 x 2 inches</li>
+                                <li><i class="icon-weight">⚖️</i> Weight: 2 lbs</li>
+                                <li><i class="icon-material">🛠️</i> Material: High-Quality Aluminum</li>
+                                <li><i class="icon-color">🎨</i> Color Options: Black, White, Silver</li>
+                                <li><i class="icon-warranty">🛡️</i> Warranty: 2 Years</li>
+                                <li><i class="icon-feature">✨</i> Special Features: Fast Charging, LED indicators</li>
+                            </ul>
+                        </div>
+                        <div class="card-details mt-4">
+                            <h3 class="text-lg text-white">More Details:</h3>
+                            <div class="card">
+                                <h4 class="text-white"><i class="icon-key">🔑</i> Key Benefits:</h4>
+                                <p class="text-gray-400">Experience high efficiency and reliability with the Black Box Pro, designed for both consumers and professionals.</p>
+                            </div>
+                            <div class="card">
+                                <h4 class="text-white"><i class="icon-safe">🔒</i> Safety Features:</h4>
+                                <p class="text-gray-400">Equipped with overcharge protection and short circuit prevention for optimal safety.</p>
+                            </div>
+                            <div class="card">
+                                <h4 class="text-white"><i class="icon-support">💬</i> Customer Support:</h4>
+                                <p class="text-gray-400">24/7 customer support available to assist with any issues or inquiries.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10 flex flex-wrap gap-6">
+                    <div class="flex items-center">
+                        <div class="bg-cyan-500 bg-opacity-20 p-2 rounded-full mr-3 pulse-animation">
+                            <i class="fas fa-check text-cyan-400 text-sm"></i>
+                        </div>
+                        <span class="text-gray-300 font-medium">1 Year Warranty</span>
+                    </div>
+                    <div class="flex items-center">
+                        <div class="bg-green-500 bg-opacity-20 p-2 rounded-full mr-3 pulse-animation">
+                            <i class="fas fa-check text-green-400 text-sm"></i>
+                        </div>
+                        <span class="text-gray-300 font-medium">Free Updates</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative mt-10 lg:mt-0">
+                <div class="relative z-10">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/qphix-training-193c9.appspot.com/o/Tests%2FChatGPT%20Image%20Jun%2022%2C%202025%2C%2012_44_47%20PM.png?alt=media&token=bc3e0b00-e482-4a38-ae4c-502bb19ddc8c" alt="Black Box Pro Device" class="rounded-xl shadow-2xl w-full max-w-lg mx-auto border-4 border-gray-700">
+                </div>
+                <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-600 rounded-full filter blur-3xl opacity-20"></div>
+                <div class="absolute -top-6 -right-6 w-32 h-32 bg-indigo-600 rounded-full filter blur-3xl opacity-20"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Brand Logos Section -->
+<section class="py-12 bg-gray-900 border-t border-b border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <p class="text-gray-400 text-sm font-semibold tracking-wider uppercase">Compatible With Major Brands</p>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+            <!-- Displaying first 10 brands -->
+            <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                <img src="https://logo.clearbit.com/voltas.com" alt="Voltas" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+            </div>
+            <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                <img src="https://logo.clearbit.com/panasonic.com" alt="Panasonic" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+            </div>
+            <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                <img src="https://logo.clearbit.com/lloyd.com" alt="Lloyd" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+            </div>
+            <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                <img src="https://logo.clearbit.com/godrej.com" alt="Godrej" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+            </div>
+            <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                <img src="https://logo.clearbit.com/bluestar.com" alt="Bluestar" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+            </div>
+            <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                <img src="https://logo.clearbit.com/carrier.com" alt="Carrier" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+            </div>
+            <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                <img src="https://logo.clearbit.com/midea.com" alt="Midea" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+            </div>
+            <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                <img src="https://logo.clearbit.com/orient.com" alt="Orient" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+            </div>
+            <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                <img src="https://logo.clearbit.com/amstrad.com" alt="Amstrad" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+            </div>
+            <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                <img src="https://logo.clearbit.com/whirlpool.com" alt="Whirlpool" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+            </div>
+        </div>
+        <div class="text-center mt-6">
+            <button id="viewAllButton" class="bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-6 py-2 rounded-lg font-medium transition duration-300">
+                View All Brands
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal for All Brands -->
+    <div id="allBrandsModal" class="modal hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="modal-content bg-gray-800 rounded-lg p-6 max-w-7xl w-full">
+            <span class="close-button text-white cursor-pointer float-right">&times;</span>
+            <h2 class="text-2xl text-white mb-4">All Compatible Brands</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                <!-- All Brand Logos -->
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/khaitan.com" alt="Khaitan" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/croma.com" alt="Croma" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/hitachi.com" alt="Hitachi" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/ogeneral.com" alt="Ogeneral" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/kalvinator.com" alt="Kalvinator" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/amazon.com" alt="Amazon Basics" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/marq.com" alt="Marq" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/lg.com" alt="LG" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/tcl.com" alt="TCL" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/sanyo.com" alt="Sanyo" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/toshiba.com" alt="Toshiba" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/gree.com" alt="Gree" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/bpl.com" alt="BPL" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/haier.com" alt="Haier" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/mitashi.com" alt="Mitashi" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/koryo.com" alt="Koryo" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/micromax.com" alt="Micromax" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/sansui.com" alt="Sansui" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/thomson.com" alt="Thomson" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/trane.com" alt="Trane" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/vstar.com" alt="Vstar" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/intex.com" alt="Intex" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/impex.com" alt="Impex" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/hyundai.com" alt="Hyundai" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/hisense.com" alt="Hisense" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/electrolux.com" alt="Electrolux" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/ibell.com" alt="iBELL" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/pel.com" alt="PEL" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/realme.com" alt="Realme" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/ifb.com" alt="IFB" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+                <div class="flex items-center justify-center border border-gray-700 rounded-lg p-4 transition-transform duration-300 hover:scale-105">
+                    <img src="https://logo.clearbit.com/nokia.com" alt="Nokia" class="h-12 opacity-80 hover:opacity-100 transition duration-300">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-gray-800 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    INNOVATIVE FEATURES
+                </span>
+                <h2 class="text-3xl font-bold text-white mb-4">Why Choose Black Box Pro?</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Engineered for HVAC professionals with cutting-edge technology</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Feature 1 -->
+                <div class="card p-8 rounded-xl">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-indigo-600 bg-opacity-20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-bolt text-indigo-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-white">High-Speed Programming</h3>
+                            <p class="text-gray-400">Processes MCU firmware 3x faster than competitors with our proprietary algorithm.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="card p-8 rounded-xl">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-blue-600 bg-opacity-20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-microchip text-blue-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-white">Wide Chip Compatibility</h3>
+                            <p class="text-gray-400">Supports over 200 MCU models from various manufacturers including STM, PIC, and Renesas.</p>
+                                                </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="card p-8 rounded-xl">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-green-600 bg-opacity-20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-plug text-green-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-white">Plug & Play Interface</h3>
+                            <p class="text-gray-400">Auto-detects target boards with intelligent voltage regulation (3.3V/5V).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="card p-8 rounded-xl">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-purple-600 bg-opacity-20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-shield-alt text-purple-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-white">Advanced Protection</h3>
+                            <p class="text-gray-400">Built-in safeguards against overvoltage, reverse polarity, and ESD events.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="card p-8 rounded-xl">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-cyan-600 bg-opacity-20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-sync-alt text-cyan-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-white">Cloud Sync</h3>
+                            <p class="text-gray-400">Automatic firmware updates and cloud backup of your programming profiles.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="card p-8 rounded-xl">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-pink-600 bg-opacity-20 p-3 rounded-lg mr-4">
+                            <i class="fas fa-cogs text-pink-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-white">User -Friendly Software</h3>
+                            <p class="text-gray-400">Intuitive interface for easy programming and configuration of your devices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications Section -->
+    <section id="specs" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-gray-800 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    TECHNICAL SPECIFICATIONS
+                </span>
+                <h2 class="text-3xl font-bold text-white mb-4">Black Box Pro Specs</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Designed for performance and reliability in HVAC applications.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card p-8 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-white">General Specifications</h3>
+                    <ul class="list-disc list-inside text-gray-400">
+                        <li>Input Voltage: 5V DC</li>
+                        <li>Current Consumption: 200mA</li>
+                        <li>Operating Temperature: -10°C to 60°C</li>
+                        <li>Dimensions: 120mm x 80mm x 25mm</li>
+                    </ul>
+                </div>
+                <div class="card p-8 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-white">Programming Features</h3>
+                    <ul class="list-disc list-inside text-gray-400">
+                        <li>Supported MCUs: STM, PIC, Renesas, etc.</li>
+                        <li>Programming Speed: Up to 1.5MB/s</li>
+                        <li>Firmware Update: Over-the-air (OTA)</li>
+                        <li>Backup and Restore Functionality</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dealers Section -->
+    <section id="dealers" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-gray-800 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    FIND A DEALER
+                </span>
+                <h2 class="text-3xl font-bold text-white mb-4">Authorized Dealers</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Locate an authorized dealer near you to purchase Black Box Pro.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card p-8 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-white">North America</h3>
+                    <p class="text-gray-400">Contact: <a href="mailto:northamerica@blackboxpro.com" class="text-cyan-400">northamerica@blackboxpro.com</a></p>
+                </div>
+                <div class="card p-8 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-white">Europe</h3>
+                    <p class="text-gray-400">Contact: <a href="mailto:europe@blackboxpro.com" class="text-cyan-400">europe@blackboxpro.com</a></p>
+                </div>
+                <div class="card p-8 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4 text-white">Asia</h3>
+                    <p class="text-gray-400">Contact: <a href="mailto:asia@blackboxpro.com" class="text-cyan-400">asia@blackboxpro.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block bg-gray-800 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    GET IN TOUCH
+                </span>
+                <h2 class="text-3xl font-bold text-white mb-4">Contact Us</h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">We'd love to hear from you! Fill out the form below to reach out.</p>
+            </div>
+            <form action="#" method="POST" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Your Name" required class="w-full p-4 rounded-md">
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Your Email" required class="w-full p-4 rounded-md">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <textarea name="message" rows="4" placeholder="Your Message" required class="w-full p-4 rounded-md"></textarea>
+                </div>
+                <button type="submit" class="bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-6 py-3 rounded-md font-medium transition duration-300 glow-effect">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-center md:text-left">© 2023 Black Box Pro. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm mr-4">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm mr-4">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+   
+    </script>
+</body>
+</html>
