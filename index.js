@@ -1,20 +1,26 @@
 // JavaScript for modal functionality
-const playButton = document.getElementById('playButton');
+const watchDemoBtn = document.getElementById('watch-demo-btn');
 const videoModal = document.getElementById('videoModal');
 const closeModalBtn = document.getElementById('closeModalBtn');
+const closeModal = document.getElementById('closeModal');
 
-playButton.addEventListener('click', () => {
-    videoModal.classList.remove('hidden');
+// Only add event listeners if elements exist
+watchDemoBtn?.addEventListener('click', () => {
+    videoModal?.classList.remove('hidden');
 });
 
 closeModalBtn?.addEventListener('click', () => {
-    videoModal.classList.add('hidden');
+    videoModal?.classList.add('hidden');
+});
+
+closeModal?.addEventListener('click', () => {
+    videoModal?.classList.add('hidden');
 });
 
 // Close modal when clicking outside of the modal content
-videoModal.addEventListener('click', (event) => {
+videoModal?.addEventListener('click', (event) => {
     if (event.target === videoModal) {
-        videoModal.classList.add('hidden');
+        videoModal?.classList.add('hidden');
     }
 });
 
