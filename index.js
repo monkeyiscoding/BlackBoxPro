@@ -1,13 +1,13 @@
 // JavaScript for modal functionality
 const playButton = document.getElementById('playButton');
 const videoModal = document.getElementById('videoModal');
-const closeButton = document.querySelector('.close-button');
+const closeModalBtn = document.getElementById('closeModalBtn');
 
 playButton.addEventListener('click', () => {
     videoModal.classList.remove('hidden');
 });
 
-closeButton.addEventListener('click', () => {
+closeModalBtn?.addEventListener('click', () => {
     videoModal.classList.add('hidden');
 });
 
@@ -18,24 +18,24 @@ videoModal.addEventListener('click', (event) => {
     }
 });
 
-       const viewAllButton = document.getElementById('viewAllButton');
-    const allBrandsModal = document.getElementById('allBrandsModal');
-    const closeButton2 = document.querySelector('.close-button');
+const viewAllButton = document.getElementById('viewAllButton');
+const allBrandsModal = document.getElementById('allBrandsModal');
+const closeAllBrandsModalBtn = document.getElementById('closeAllBrandsModal');
 
-    viewAllButton.addEventListener('click', () => {
-        allBrandsModal.classList.remove('hidden');
-    });
+viewAllButton.addEventListener('click', () => {
+    allBrandsModal.classList.remove('hidden');
+});
 
-    closeButton2.addEventListener('click', () => {
+closeAllBrandsModalBtn?.addEventListener('click', () => {
+    allBrandsModal.classList.add('hidden');
+});
+
+// Close modal when clicking outside of the modal content
+allBrandsModal.addEventListener('click', (event) => {
+    if (event.target === allBrandsModal) {
         allBrandsModal.classList.add('hidden');
-    });
-
-    // Close modal when clicking outside of the modal content
-    allBrandsModal.addEventListener('click', (event) => {
-        if (event.target === allBrandsModal) {
-            allBrandsModal.classList.add('hidden');
-        }
-    });
+    }
+});
 
 
 document.querySelectorAll('.menu-item').forEach(item => {
@@ -61,4 +61,75 @@ mobileMenuButton.addEventListener('click', () => {
 
 document.getElementById('closeAllBrandsModal')?.addEventListener('click', () => {
   document.getElementById('allBrandsModal')?.classList.add('hidden');
+});
+
+// Download Contact Modal functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const downloadNowBtn = document.getElementById('downloadNowBtn');
+    const downloadContactModal = document.getElementById('downloadContactModal');
+    const closeDownloadModal = document.getElementById('closeDownloadModal');
+    const closeDownloadModalBtn = document.getElementById('closeDownloadModalBtn');
+    const findDealerBtn = document.getElementById('findDealerBtn');
+
+    // Open download contact modal
+    downloadNowBtn?.addEventListener('click', () => {
+        downloadContactModal?.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    });
+
+    // Close modal functions
+    const closeDownloadModalFunction = () => {
+        downloadContactModal?.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    };
+
+    closeDownloadModal?.addEventListener('click', closeDownloadModalFunction);
+    closeDownloadModalBtn?.addEventListener('click', closeDownloadModalFunction);
+
+    // Close modal when clicking outside
+    downloadContactModal?.addEventListener('click', (e) => {
+        if (e.target === downloadContactModal) {
+            closeDownloadModalFunction();
+        }
+    });
+
+    // Find dealer button functionality
+    findDealerBtn?.addEventListener('click', () => {
+        closeDownloadModalFunction();
+        document.getElementById('dealers')?.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && downloadContactModal && !downloadContactModal.classList.contains('hidden')) {
+            closeDownloadModalFunction();
+        }
+    });
+});
+
+// Inquiry button functionality
+document.addEventListener('DOMContentLoaded', () => {
+    // Handle all inquiry buttons
+    const inquiryButtons = [
+        document.getElementById('cta-nav'),
+        document.getElementById('inquiry-button'),
+        document.getElementById('hero-inquiry-btn')
+    ];
+
+    inquiryButtons.forEach(button => {
+        button?.addEventListener('click', () => {
+            // Smooth scroll to contact section
+            document.getElementById('contact')?.scrollIntoView({
+                behavior: 'smooth'
+            });
+            
+            // Optional: Focus on the name input field after scrolling
+            setTimeout(() => {
+                const nameInput = document.querySelector('input[name="name"]');
+                nameInput?.focus();
+            }, 1000);
+        });
+    });
 });

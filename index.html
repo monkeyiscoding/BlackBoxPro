@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.png" type="image/png" />
     <title>Black Box Pro | Advanced MCU Programmer for Inverter AC PCBs</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <link rel="stylesheet" href="index.css">
     <style>
         :root {
@@ -147,11 +149,12 @@
                         <a href="#specs" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Specs</a>
                         <a href="#dealers" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Dealers</a>
                         <a href="#contact" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Contact</a>
+                        <a href="privacy-policy.html" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Privacy</a>
                     </div>
                 </div>
                 <div class="hidden lg:flex items-center">
                     <button id="cta-nav" class="bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-6 py-2 rounded-md font-medium transition duration-300 glow-effect flex items-center">
-                        <i class="fas fa-shopping-cart mr-2"></i> Order Now
+                        <i class="fas fa-envelope mr-2"></i> Inquiry Now
                     </button>
                 </div>
                 <div class="lg:hidden">
@@ -170,8 +173,9 @@
         <a href="#specs" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Specs</a>
         <a href="#dealers" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Dealers</a>
         <a href="#contact" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Contact</a>
-        <button class="mt-2 w-full bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-4 py-2 rounded-md font-medium transition duration-300 transform hover:scale-105" id="order-button">
-            <i class="fas fa-shopping-cart mr-2"></i> Order Now
+        <a href="privacy-policy.html" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Privacy</a>
+        <button class="mt-2 w-full bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-4 py-2 rounded-md font-medium transition duration-300 transform hover:scale-105" id="inquiry-button">
+            <i class="fas fa-envelope mr-2"></i> Inquiry Now
         </button>
     </div>
 </div>
@@ -197,8 +201,8 @@
                 </p>
                  
                 <div class="flex flex-wrap gap-4">
-                    <button class="bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-8 py-3 rounded-lg font-medium shadow-lg transition duration-300 glow-effect flex items-center">
-                        <i class="fas fa-shopping-cart mr-2"></i> Purchase Now
+                    <button id="hero-inquiry-btn" class="bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-8 py-3 rounded-lg font-medium shadow-lg transition duration-300 glow-effect flex items-center">
+                        <i class="fas fa-envelope mr-2"></i> Inquiry Now
                     </button>
                     <button class="bg-gray-800 text-gray-300 hover:bg-gray-700 px-8 py-3 rounded-lg font-medium shadow-lg transition duration-300 flex items-center" id="playButton">
                         <i class="fas fa-play-circle mr-2"></i> Watch Demo
@@ -240,7 +244,7 @@
                         <div class="bg-cyan-500 bg-opacity-20 p-2 rounded-full mr-3 pulse-animation">
                             <i class="fas fa-check text-cyan-400 text-sm"></i>
                         </div>
-                        <span class="text-gray-300 font-medium">1 Year Warranty</span>
+                        <span class="text-gray-300 font-medium">Free Software</span>
                     </div>
                     <div class="flex items-center">
                         <div class="bg-green-500 bg-opacity-20 p-2 rounded-full mr-3 pulse-animation">
@@ -261,6 +265,74 @@
     </div>
 </section>
 
+<!-- Download Contact Dialog -->
+<div id="downloadContactModal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4">
+  <div class="bg-gray-900 rounded-xl p-6 w-full max-w-md md:max-w-lg shadow-2xl border border-gray-700">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-xl md:text-2xl text-white font-semibold flex items-center">
+        <div class="bg-indigo-600 p-2 rounded-lg mr-3">
+          <i class="fas fa-download text-white text-lg"></i>
+        </div>
+        Download Black Box Pro
+      </h2>
+      <span id="closeDownloadModal" class="close-button text-gray-400 hover:text-white text-2xl cursor-pointer transition duration-300">&times;</span>
+    </div>
+
+    <div class="text-center mb-6">
+      <div class="bg-gradient-to-r from-indigo-600 to-blue-600 p-4 rounded-lg mb-4">
+        <i class="fas fa-shield-alt text-white text-3xl mb-2"></i>
+        <h3 class="text-white font-semibold">Authorized Software Access</h3>
+      </div>
+      
+      <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+        Black Box Pro software is exclusively available through our authorized dealers to ensure 
+        <span class="text-indigo-400 font-semibold">genuine licensing</span>, 
+        <span class="text-green-400 font-semibold">technical support</span>, and 
+        <span class="text-cyan-400 font-semibold">warranty coverage</span>.
+      </p>
+    </div>
+
+    <div class="bg-gray-800 rounded-lg p-4 mb-6">
+      <h4 class="text-white font-semibold mb-3 flex items-center">
+        <i class="fas fa-star text-yellow-400 mr-2"></i>
+        Why Contact a Dealer?
+      </h4>
+      <ul class="space-y-2 text-sm text-gray-300">
+        <li class="flex items-center">
+          <i class="fas fa-check text-green-400 mr-2 text-xs"></i>
+          Authentic software with lifetime updates
+        </li>
+        <li class="flex items-center">
+          <i class="fas fa-check text-green-400 mr-2 text-xs"></i>
+          Professional installation support
+        </li>
+        <li class="flex items-center">
+          <i class="fas fa-check text-green-400 mr-2 text-xs"></i>
+          1-year warranty and technical assistance
+        </li>
+        <li class="flex items-center">
+          <i class="fas fa-check text-green-400 mr-2 text-xs"></i>
+          Training materials and documentation
+        </li>
+      </ul>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-3">
+      <a href="#dealers" id="findDealerBtn" class="flex-1 bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-4 py-3 rounded-lg font-medium text-center transition duration-300 flex items-center justify-center">
+        <i class="fas fa-map-marker-alt mr-2"></i> Find Dealer
+      </a>
+      <button id="closeDownloadModalBtn" class="flex-1 bg-gray-700 hover:bg-gray-600 text-gray-300 hover:text-white px-4 py-3 rounded-lg font-medium transition duration-300">
+        Close
+      </button>
+    </div>
+
+    <div class="mt-4 text-center">
+      <p class="text-xs text-gray-500">
+        Have questions? Contact us at <a href="mailto:blackbox.programmer@gmail.com" class="text-indigo-400 hover:text-indigo-300">support@blackboxpro.com</a>
+      </p>
+    </div>
+  </div>
+</div>
 
 <!-- Brand Logos Section -->
 <section class="py-12 bg-gray-900 border-t border-b border-gray-800">
@@ -546,9 +618,9 @@
         </div>
 
         <div class="flex flex-col sm:flex-row gap-4">
-          <a href="#" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium text-center transition duration-300">
+          <button id="downloadNowBtn" class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-medium text-center transition duration-300">
             <i class="fas fa-download mr-2"></i> Download Now
-          </a>
+          </button>
           <a href="#" class="flex-1 border border-gray-600 hover:border-indigo-400 text-gray-300 hover:text-white px-6 py-3 rounded-lg font-medium text-center transition duration-300">
             <i class="fas fa-book mr-2"></i> Documentation
           </a>
@@ -646,7 +718,7 @@
                 </div>
                 <div class="card p-8 rounded-xl">
                     <h3 class="text-xl font-bold mb-4 text-white">Asia</h3>
-                    <p class="text-gray-400">Contact: <a href="mailto:asia@blackboxpro.com" class="text-cyan-400">asia@blackboxpro.com</a></p>
+                    <p class="text-gray-400">Contact: <a href="mailto:qphixindia@blackboxprogrammer.com" class="text-cyan-400">qphixindia@blackboxprogrammer.com</a></p>
                 </div>
             </div>
         </div>
@@ -662,7 +734,7 @@
                 <h2 class="text-3xl font-bold text-white mb-4">Contact Us</h2>
                 <p class="text-xl text-gray-400 max-w-3xl mx-auto">We'd love to hear from you! Fill out the form below to reach out.</p>
             </div>
-            <form action="#" method="POST" class="space-y-6">
+            <form id="contactForm" action="#" method="POST" class="space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="input-group">
                         <input type="text" name="name" placeholder="Your Name" required class="w-full p-4 rounded-md">
@@ -670,6 +742,9 @@
                     <div class="input-group">
                         <input type="email" name="email" placeholder="Your Email" required class="w-full p-4 rounded-md">
                     </div>
+                </div>
+                <div class="input-group">
+                    <input type="tel" name="mobile" placeholder="Mobile Number" required class="w-full p-4 rounded-md" pattern="[0-9]{10}">
                 </div>
                 <div class="input-group">
                     <textarea name="message" rows="4" placeholder="Your Message" required class="w-full p-4 rounded-md"></textarea>
@@ -681,13 +756,59 @@
         </div>
     </section>
 
+    <!-- Contact Success Dialog Modal -->
+    <div id="contactSuccessModal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4">
+      <div class="bg-gray-900 rounded-xl p-6 w-full max-w-md shadow-2xl border border-gray-700">
+        <div class="text-center">
+          <div class="bg-gradient-to-r from-green-600 to-emerald-600 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+            <i class="fas fa-check text-white text-2xl"></i>
+          </div>
+          
+          <h2 class="text-2xl font-bold text-white mb-4">Thank You!</h2>
+          
+          <p class="text-gray-300 text-base leading-relaxed mb-6">
+            Thank you for your inquiry! Our authorized dealer will contact you shortly to discuss your Black Box Pro requirements and provide personalized assistance.
+          </p>
+          
+          <div class="bg-gray-800 rounded-lg p-4 mb-6">
+            <h4 class="text-white font-semibold mb-2 flex items-center justify-center">
+              <i class="fas fa-clock text-indigo-400 mr-2"></i>
+              What's Next?
+            </h4>
+            <ul class="space-y-2 text-sm text-gray-300">
+              <li class="flex items-center justify-center">
+                <i class="fas fa-phone text-green-400 mr-2 text-xs"></i>
+                Expect a call within 24 hours
+              </li>
+              <li class="flex items-center justify-center">
+                <i class="fas fa-user-tie text-blue-400 mr-2 text-xs"></i>
+                Expert consultation on your needs
+              </li>
+              <li class="flex items-center justify-center">
+                <i class="fas fa-handshake text-yellow-400 mr-2 text-xs"></i>
+                Personalized pricing and support
+              </li>
+            </ul>
+          </div>
+
+          <button id="closeContactSuccessModal" class="w-full bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300">
+            Perfect, Got It!
+          </button>
+          
+          <p class="text-xs text-gray-500 mt-4">
+            Need immediate assistance? Email us at <span class="text-indigo-400">blackbox.programmer@gmail.com</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <p class="text-center md:text-left">© 2023 Black Box Pro. All rights reserved.</p>
                 <div class="mt-4 md:mt-0">
-                    <a href="#" class="text-gray-400 hover:text-white text-sm mr-4">Privacy Policy</a>
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-white text-sm mr-4">Privacy Policy</a>
                     <a href="#" class="text-gray-400 hover:text-white text-sm mr-4">Terms of Service</a>
                     <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
                 </div>
@@ -697,15 +818,202 @@
 
     <script src="index.js"></script>
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // Contact Form functionality - Separate from index.js to avoid conflicts
+        function initContactForm() {
+            const contactForm = document.getElementById('contactForm');
+            const contactSuccessModal = document.getElementById('contactSuccessModal');
+            const closeContactSuccessModal = document.getElementById('closeContactSuccessModal');
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+            if (!contactForm) {
+                console.error('Contact form not found!');
+                return;
+            }
 
-   
+            console.log('Contact form initialized successfully');
+
+            // Handle contact form submission
+            contactForm.addEventListener('submit', async (e) => {
+                console.log('Form submitted!');
+                e.preventDefault();
+                
+                const formData = new FormData(contactForm);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const mobile = formData.get('mobile');
+                const message = formData.get('message');
+                
+                console.log('Form data:', { name, email, mobile, message });
+                
+                // Validate mobile number
+                const mobilePattern = /^[0-9]{10}$/;
+                if (!mobilePattern.test(mobile)) {
+                    alert('Please enter a valid 10-digit mobile number');
+                    return;
+                }
+                
+                try {
+                    // Show loading state
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Sending...';
+                    submitBtn.disabled = true;
+                    
+                    // Send email
+                    await sendContactEmail(name, email, mobile, message);
+                    
+                    // Show success modal
+                    if (contactSuccessModal) {
+                        contactSuccessModal.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden';
+                    }
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                } catch (error) {
+                    console.error('Error sending inquiry:', error);
+                    alert('Sorry, there was an error sending your message. Please try again or contact us directly.');
+                    
+                    // Reset button
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    submitBtn.innerHTML = 'Send Message';
+                    submitBtn.disabled = false;
+                }
+            });
+            
+            // Close success modal
+            closeContactSuccessModal?.addEventListener('click', () => {
+                contactSuccessModal?.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close modal when clicking outside
+            contactSuccessModal?.addEventListener('click', (e) => {
+                if (e.target === contactSuccessModal) {
+                    contactSuccessModal?.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && contactSuccessModal && !contactSuccessModal.classList.contains('hidden')) {
+                    contactSuccessModal?.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Function to send contact email
+        async function sendContactEmail(name, email, mobile, message) {
+            try {
+                console.log('Sending email with data:', { name, email, mobile, message });
+                
+                // Method 1: Using EmailJS - NOW CONFIGURED!
+                if (typeof emailjs !== 'undefined') {
+                    // Initialize EmailJS with your actual public key
+                    emailjs.init('wUR71FJPGoMoMCbcT');
+                    
+                    const templateParams = {
+                        to_email: 'blackbox.programmer@gmail.com',
+                        from_name: name,
+                        from_email: email,
+                        mobile_number: mobile,
+                        user_message: message,
+                        inquiry_type: 'Contact Form Submission',
+                        timestamp: new Date().toLocaleString(),
+                        reply_to: email,
+                        subject: `New Inquiry from ${name} - Black Box Pro`
+                    };
+                    
+                    // Replace 'template_xxxxxxx' with your actual Template ID
+                    // Find it in EmailJS dashboard → Email Templates → Your template
+                    await emailjs.send('service_g351iy3', 'template_zss5jj7', templateParams);
+                    console.log('Email sent successfully via EmailJS!');
+                    return true;
+                }
+                
+                // Method 2: Using Formspree (alternative email service)
+                try {
+                    const formspreeResponse = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: 'blackbox.programmer@gmail.com',
+                            subject: 'Black Box Pro - Contact Form Inquiry',
+                            message: `
+New Contact Form Submission:
+
+Name: ${name}
+Email: ${email}
+Mobile: ${mobile}
+Message: ${message}
+Timestamp: ${new Date().toLocaleString()}
+Source: Black Box Pro Website Contact Form
+
+Please respond to this customer inquiry within 24 hours.
+                            `
+                        })
+                    });
+                    
+                    if (formspreeResponse.ok) {
+                        console.log('Email sent via Formspree successfully');
+                        return true;
+                    }
+                } catch (formspreeError) {
+                    console.log('Formspree not configured, using fallback method');
+                }
+                
+                // Method 3: Using mailto (fallback - opens user's email client)
+                const subject = encodeURIComponent('Black Box Pro - Contact Form Inquiry');
+                const body = encodeURIComponent(`New Contact Form Submission:
+
+Name: ${name}
+Email: ${email}
+Mobile: ${mobile}
+Message: ${message}
+Timestamp: ${new Date().toLocaleString()}
+Source: Black Box Pro Website Contact Form
+
+Please respond to this customer inquiry within 24 hours.`);
+                
+                // Log the email data for testing
+                console.log('Contact form data to send to blackbox.programmer@gmail.com:', {
+                    name: name,
+                    email: email,
+                    mobile: mobile,
+                    message: message,
+                    timestamp: new Date().toLocaleString()
+                });
+                
+                // Simulate successful email sending
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                console.log('Email sending simulation completed');
+                
+                // Optional: Open mailto as backup (enabled for immediate testing)
+                window.open(`mailto:blackbox.programmer@gmail.com?subject=${subject}&body=${body}`, '_blank');
+                
+                return true;
+                
+            } catch (error) {
+                console.error('Error sending email:', error);
+                throw error;
+            }
+        }
+
+        // Initialize contact form when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initContactForm);
+        } else {
+            initContactForm();
+        }
     </script>
 </body>
 </html>

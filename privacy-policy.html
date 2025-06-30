@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Black Box Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        :root {
+            --primary: #6d28d9;
+            --secondary: #3b82f6;
+            --accent: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.5) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .neon-shadow {
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+        
+        .content-section {
+            background: rgba(30, 41, 59, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .table-of-contents a {
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .table-of-contents a:hover {
+            border-left-color: var(--secondary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 640px) {
+            .content-section {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-gray-900 bg-opacity-80 backdrop-blur-md sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <div class="flex items-center">
+                            <div style="background-color: transparent;" class="bg-indigo-700 p-2 rounded-md neon-shadow">
+                               <img src="https://firebasestorage.googleapis.com/v0/b/qphix-training-193c9.appspot.com/o/Tests%2Flogo-removebg-preview.png?alt=media&token=c38ca775-d37c-4266-8ae0-4521b582aff8" alt="" style="width: 40px;">
+                            </div>
+                            <span class="ml-3 text-xl font-bold text-white">Black Box <span class="gradient-text">Pro</span></span>
+                        </div>
+                    </div>
+                    <div class="hidden lg:ml-8 lg:flex lg:space-x-8">
+                        <a href="index.html" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="index.html#features" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Features</a>
+                        <a href="index.html#specs" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Specs</a>
+                        <a href="index.html#dealers" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Dealers</a>
+                        <a href="index.html#contact" class="text-gray-400 hover:text-white px-3 py-2 text-sm font-medium">Contact</a>
+                        <a href="privacy-policy.html" class="text-indigo-200 hover:text-white px-3 py-2 text-sm font-medium border-b-2 border-indigo-500">Privacy Policy</a>
+                    </div>
+                </div>
+                <div class="hidden lg:flex items-center">
+                    <a href="index.html#contact" class="bg-gradient-to-r from-indigo-600 to-blue-500 hover:from-indigo-700 hover:to-blue-600 text-white px-6 py-2 rounded-md font-medium transition duration-300 flex items-center">
+                        <i class="fas fa-envelope mr-2"></i> Inquiry Now
+                    </a>
+                </div>
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-gray-400 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-900 pb-4 rounded-lg shadow-lg transition-transform transform scale-95 origin-top">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Home</a>
+                <a href="index.html#features" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Features</a>
+                <a href="index.html#specs" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Specs</a>
+                <a href="index.html#dealers" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Dealers</a>
+                <a href="index.html#contact" class="menu-item text-gray-400 hover:text-white block px-3 py-2 text-base font-medium transition duration-300 hover:bg-gray-800 rounded-md">Contact</a>
+                <a href="privacy-policy.html" class="menu-item text-indigo-200 block px-3 py-2 text-base font-medium border-l-4 border-indigo-500 transition duration-300 hover:bg-gray-800 rounded-md">Privacy Policy</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Privacy Policy Header -->
+    <section class="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <span class="inline-block bg-gray-800 text-cyan-400 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    LEGAL INFORMATION
+                </span>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Privacy Policy</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Your privacy is important to us. This policy explains how we collect, use, and protect your information when you use Black Box Pro products and services.
+                </p>
+                <div class="mt-6 text-sm text-gray-400">
+                    <p>Last updated: December 30, 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Content -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Table of Contents -->
+                <div class="lg:col-span-1">
+                    <div class="content-section rounded-lg p-6 sticky top-24">
+                        <h3 class="text-lg font-semibold text-white mb-4">Table of Contents</h3>
+                        <nav class="table-of-contents space-y-2">
+                            <a href="#information-collection" class="block text-gray-300 hover:text-white px-3 py-2 rounded text-sm">1. Information We Collect</a>
+                            <a href="#how-we-use" class="block text-gray-300 hover:text-white px-3 py-2 rounded text-sm">2. How We Use Information</a>
+                            <a href="#information-sharing" class="block text-gray-300 hover:text-white px-3 py-2 rounded text-sm">3. Information Sharing</a>
+                            <a href="#data-security" class="block text-gray-300 hover:text-white px-3 py-2 rounded text-sm">4. Data Security</a>
+                            <a href="#your-rights" class="block text-gray-300 hover:text-white px-3 py-2 rounded text-sm">5. Your Rights</a>
+                            <a href="#cookies" class="block text-gray-300 hover:text-white px-3 py-2 rounded text-sm">6. Cookies & Tracking</a>
+                            <a href="#children-privacy" class="block text-gray-300 hover:text-white px-3 py-2 rounded text-sm">7. Children's Privacy</a>
+                            <a href="#international-transfers" class="block text-gray-300 hover:text-white px-3 py-2 rounded text-sm">8. International Transfers</a>
+                            <a href="#policy-changes" class="block text-gray-300 hover:text-white px-3 py-2 rounded text-sm">9. Policy Changes</a>
+                            <a href="#contact-us" class="block text-gray-300 hover:text-white px-3 py-2 rounded text-sm">10. Contact Us</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="lg:col-span-3">
+                    <!-- Information Collection -->
+                    <div id="information-collection" class="content-section rounded-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-white mb-6">1. Information We Collect</h2>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold text-indigo-400 mb-3">Personal Information</h3>
+                            <p class="text-gray-300 mb-4">When you use Black Box Pro products or contact us, we may collect:</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+                                <li><strong>Contact Information:</strong> Name, email address, phone number, postal address</li>
+                                <li><strong>Business Information:</strong> Company name, job title, industry</li>
+                                <li><strong>Technical Support:</strong> Device serial numbers, software versions, error logs</li>
+                                <li><strong>Account Information:</strong> Username, password, preferences</li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold text-indigo-400 mb-3">Device Information</h3>
+                            <p class="text-gray-300 mb-4">When you use Black Box Pro hardware and software:</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+                                <li><strong>Hardware Data:</strong> Device model, serial number, firmware version</li>
+                                <li><strong>Usage Data:</strong> Programming operations, success/failure rates, performance metrics</li>
+                                <li><strong>Software Data:</strong> Application version, update history, feature usage</li>
+                                <li><strong>Network Data:</strong> IP address, network configuration (for cloud features)</li>
+                            </ul>
+                        </div>
+
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold text-indigo-400 mb-3">Website Information</h3>
+                            <p class="text-gray-300 mb-4">When you visit our website:</p>
+                            <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+                                <li><strong>Browsing Data:</strong> Pages visited, time spent, referral sources</li>
+                                <li><strong>Device Data:</strong> Browser type, operating system, screen resolution</li>
+                                <li><strong>Cookies:</strong> Session data, preferences, analytics information</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- How We Use Information -->
+                    <div id="how-we-use" class="content-section rounded-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-white mb-6">2. How We Use Your Information</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-gray-800 rounded-lg p-4">
+                                <h3 class="text-lg font-semibold text-green-400 mb-3">
+                                    <i class="fas fa-cogs mr-2"></i>Product Services
+                                </h3>
+                                <ul class="text-gray-300 space-y-2 text-sm">
+                                    <li>• Provide MCU programming services</li>
+                                    <li>• Software updates and maintenance</li>
+                                    <li>• Technical support and troubleshooting</li>
+                                    <li>• Product warranty management</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-lg p-4">
+                                <h3 class="text-lg font-semibold text-blue-400 mb-3">
+                                    <i class="fas fa-envelope mr-2"></i>Communications
+                                </h3>
+                                <ul class="text-gray-300 space-y-2 text-sm">
+                                    <li>• Respond to inquiries and requests</li>
+                                    <li>• Send product updates and announcements</li>
+                                    <li>• Provide customer support</li>
+                                    <li>• Marketing communications (with consent)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-lg p-4">
+                                <h3 class="text-lg font-semibold text-purple-400 mb-3">
+                                    <i class="fas fa-chart-line mr-2"></i>Analytics & Improvement
+                                </h3>
+                                <ul class="text-gray-300 space-y-2 text-sm">
+                                    <li>• Analyze product usage patterns</li>
+                                    <li>• Improve software performance</li>
+                                    <li>• Develop new features</li>
+                                    <li>• Quality assurance and testing</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-lg p-4">
+                                <h3 class="text-lg font-semibold text-yellow-400 mb-3">
+                                    <i class="fas fa-shield-alt mr-2"></i>Legal & Security
+                                </h3>
+                                <ul class="text-gray-300 space-y-2 text-sm">
+                                    <li>• Comply with legal obligations</li>
+                                    <li>• Prevent fraud and abuse</li>
+                                    <li>• Protect intellectual property</li>
+                                    <li>• Enforce terms of service</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Information Sharing -->
+                    <div id="information-sharing" class="content-section rounded-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-white mb-6">3. Information Sharing and Disclosure</h2>
+                        
+                        <div class="bg-red-900 bg-opacity-30 border border-red-600 rounded-lg p-4 mb-6">
+                            <h3 class="text-lg font-semibold text-red-400 mb-2">
+                                <i class="fas fa-exclamation-triangle mr-2"></i>We Do NOT Sell Your Data
+                            </h3>
+                            <p class="text-gray-300 text-sm">
+                                Black Box Pro does not sell, rent, or trade your personal information to third parties for marketing purposes.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="border border-gray-700 rounded-lg p-4">
+                                <h3 class="text-lg font-semibold text-indigo-400 mb-2">Authorized Dealers</h3>
+                                <p class="text-gray-300 text-sm">
+                                    We may share contact information with authorized dealers to fulfill product sales, support, and warranty services in your region.
+                                </p>
+                            </div>
+                            
+                            <div class="border border-gray-700 rounded-lg p-4">
+                                <h3 class="text-lg font-semibold text-indigo-400 mb-2">Service Providers</h3>
+                                <p class="text-gray-300 text-sm">
+                                    We use trusted third-party services for email delivery, analytics, and cloud storage. These providers are bound by strict confidentiality agreements.
+                                </p>
+                            </div>
+                            
+                            <div class="border border-gray-700 rounded-lg p-4">
+                                <h3 class="text-lg font-semibold text-indigo-400 mb-2">Legal Requirements</h3>
+                                <p class="text-gray-300 text-sm">
+                                    We may disclose information when required by law, court order, or to protect our rights, property, or safety.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Security -->
+                    <div id="data-security" class="content-section rounded-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-white mb-6">4. Data Security</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="text-lg font-semibold text-green-400 mb-3">Technical Safeguards</h3>
+                                <ul class="text-gray-300 space-y-2 text-sm">
+                                    <li>• SSL/TLS encryption for data transmission</li>
+                                    <li>• AES-256 encryption for stored data</li>
+                                    <li>• Secure cloud infrastructure</li>
+                                    <li>• Regular security audits and updates</li>
+                                    <li>• Multi-factor authentication</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold text-blue-400 mb-3">Organizational Measures</h3>
+                                <ul class="text-gray-300 space-y-2 text-sm">
+                                    <li>• Employee privacy training</li>
+                                    <li>• Access controls and permissions</li>
+                                    <li>• Data retention policies</li>
+                                    <li>• Incident response procedures</li>
+                                    <li>• Regular backup and recovery testing</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-gray-800 rounded-lg p-4">
+                            <p class="text-gray-300 text-sm">
+                                <i class="fas fa-info-circle text-cyan-400 mr-2"></i>
+                                <strong>Data Retention:</strong> We retain personal information only as long as necessary to fulfill the purposes outlined in this policy, typically for the duration of your relationship with us plus 7 years for business records.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Your Rights -->
+                    <div id="your-rights" class="content-section rounded-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-white mb-6">5. Your Privacy Rights</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div class="border border-green-600 rounded-lg p-4">
+                                    <h3 class="text-lg font-semibold text-green-400 mb-2">
+                                        <i class="fas fa-eye mr-2"></i>Access
+                                    </h3>
+                                    <p class="text-gray-300 text-sm">Request a copy of your personal information we hold.</p>
+                                </div>
+                                
+                                <div class="border border-blue-600 rounded-lg p-4">
+                                    <h3 class="text-lg font-semibold text-blue-400 mb-2">
+                                        <i class="fas fa-edit mr-2"></i>Correction
+                                    </h3>
+                                    <p class="text-gray-300 text-sm">Request corrections to inaccurate or incomplete data.</p>
+                                </div>
+                                
+                                <div class="border border-red-600 rounded-lg p-4">
+                                    <h3 class="text-lg font-semibold text-red-400 mb-2">
+                                        <i class="fas fa-trash mr-2"></i>Deletion
+                                    </h3>
+                                    <p class="text-gray-300 text-sm">Request deletion of your personal information (subject to legal requirements).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="border border-purple-600 rounded-lg p-4">
+                                    <h3 class="text-lg font-semibold text-purple-400 mb-2">
+                                        <i class="fas fa-download mr-2"></i>Portability
+                                    </h3>
+                                    <p class="text-gray-300 text-sm">Receive your data in a portable, machine-readable format.</p>
+                                </div>
+                                
+                                <div class="border border-yellow-600 rounded-lg p-4">
+                                    <h3 class="text-lg font-semibold text-yellow-400 mb-2">
+                                        <i class="fas fa-ban mr-2"></i>Objection
+                                    </h3>
+                                    <p class="text-gray-300 text-sm">Object to processing for marketing or legitimate interests.</p>
+                                </div>
+                                
+                                <div class="border border-cyan-600 rounded-lg p-4">
+                                    <h3 class="text-lg font-semibold text-cyan-400 mb-2">
+                                        <i class="fas fa-pause mr-2"></i>Restriction
+                                    </h3>
+                                    <p class="text-gray-300 text-sm">Request limitation of processing in certain circumstances.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-indigo-900 bg-opacity-30 border border-indigo-600 rounded-lg p-4">
+                            <p class="text-gray-300 text-sm">
+                                <i class="fas fa-envelope text-indigo-400 mr-2"></i>
+                                To exercise your rights, contact us at <strong>blackbox.programmer@gmail.com</strong> or use the contact form on our website.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Cookies -->
+                    <div id="cookies" class="content-section rounded-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-white mb-6">6. Cookies and Tracking Technologies</h2>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-lg font-semibold text-indigo-400 mb-3">Types of Cookies We Use</h3>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-green-400 mb-2">Essential Cookies</h4>
+                                        <p class="text-gray-300 text-sm">Required for basic website functionality, login sessions, and security.</p>
+                                    </div>
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-blue-400 mb-2">Analytics Cookies</h4>
+                                        <p class="text-gray-300 text-sm">Help us understand how visitors use our website to improve user experience.</p>
+                                    </div>
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-purple-400 mb-2">Preference Cookies</h4>
+                                        <p class="text-gray-300 text-sm">Remember your settings and preferences for a better experience.</p>
+                                    </div>
+                                    <div class="bg-gray-800 rounded-lg p-4">
+                                        <h4 class="font-semibold text-yellow-400 mb-2">Marketing Cookies</h4>
+                                        <p class="text-gray-300 text-sm">Used to show relevant ads and measure campaign effectiveness (with consent).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-gray-800 rounded-lg p-4">
+                                <h4 class="font-semibold text-indigo-400 mb-2">Managing Cookies</h4>
+                                <p class="text-gray-300 text-sm mb-2">You can control cookies through:</p>
+                                <ul class="text-gray-300 text-sm space-y-1 ml-4">
+                                    <li>• Your browser settings</li>
+                                    <li>• Our cookie preference center</li>
+                                    <li>• Opt-out links for third-party services</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Children's Privacy -->
+                    <div id="children-privacy" class="content-section rounded-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-white mb-6">7. Children's Privacy</h2>
+                        <div class="bg-orange-900 bg-opacity-30 border border-orange-600 rounded-lg p-6">
+                            <h3 class="text-lg font-semibold text-orange-400 mb-3">
+                                <i class="fas fa-child mr-2"></i>Age Restrictions
+                            </h3>
+                            <p class="text-gray-300 mb-4">
+                                Black Box Pro products and services are designed for professional use and are not intended for children under 18 years of age. We do not knowingly collect personal information from children.
+                            </p>
+                            <p class="text-gray-300 text-sm">
+                                If you believe a child has provided us with personal information, please contact us immediately at <strong>blackbox.programmer@gmail.com</strong> and we will take steps to remove such information.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- International Transfers -->
+                    <div id="international-transfers" class="content-section rounded-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-white mb-6">8. International Data Transfers</h2>
+                        <div class="space-y-4">
+                            <p class="text-gray-300">
+                                Black Box Pro operates globally through authorized dealers and cloud services. Your information may be transferred to and processed in countries other than your own.
+                            </p>
+                            
+                            <div class="bg-gray-800 rounded-lg p-4">
+                                <h3 class="text-lg font-semibold text-indigo-400 mb-2">Safeguards for International Transfers</h3>
+                                <ul class="text-gray-300 space-y-2 text-sm">
+                                    <li>• Standard Contractual Clauses (SCCs) with partners</li>
+                                    <li>• Adequacy decisions by relevant authorities</li>
+                                    <li>• Binding Corporate Rules where applicable</li>
+                                    <li>• Additional security measures for sensitive data</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Policy Changes -->
+                    <div id="policy-changes" class="content-section rounded-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold text-white mb-6">9. Changes to This Policy</h2>
+                        <div class="space-y-4">
+                            <p class="text-gray-300">
+                                We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors.
+                            </p>
+                            
+                            <div class="bg-blue-900 bg-opacity-30 border border-blue-600 rounded-lg p-4">
+                                <h3 class="text-lg font-semibold text-blue-400 mb-2">
+                                    <i class="fas fa-bell mr-2"></i>How We Notify You
+                                </h3>
+                                <ul class="text-gray-300 space-y-2 text-sm">
+                                    <li>• Email notification for significant changes</li>
+                                    <li>• Website banner for 30 days</li>
+                                    <li>• Updated "Last modified" date</li>
+                                    <li>• In-app notifications where applicable</li>
+                                </ul>
+                            </div>
+                            
+                            <p class="text-gray-300 text-sm">
+                                Your continued use of our products and services after policy changes constitutes acceptance of the updated terms.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Us -->
+                    <div id="contact-us" class="content-section rounded-lg p-8">
+                        <h2 class="text-2xl font-bold text-white mb-6">10. Contact Us</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="text-lg font-semibold text-indigo-400 mb-4">Privacy Officer</h3>
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-envelope text-cyan-400 mr-3"></i>
+                                        <span class="text-gray-300">blackbox.programmer@gmail.com</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-envelope text-cyan-400 mr-3"></i>
+                                        <span class="text-gray-300">blackbox.programmer@gmail.com</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <i class="fas fa-globe text-cyan-400 mr-3"></i>
+                                        <a href="index.html#contact" class="text-indigo-400 hover:text-indigo-300">Contact Form</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold text-indigo-400 mb-4">Business Address</h3>
+                                <div class="text-gray-300 space-y-2">
+                                    <p>Black Box Pro</p>
+                                    <p>BlackBox Technologies</p>
+                                    <p>India</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 bg-green-900 bg-opacity-30 border border-green-600 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-400 mb-2">
+                                <i class="fas fa-clock mr-2"></i>Response Time
+                            </h4>
+                            <p class="text-gray-300 text-sm">
+                                We aim to respond to all privacy-related inquiries within 30 days. For urgent matters, please mark your email as "URGENT - Privacy Request".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-center md:text-left">© 2024 Black Box Pro. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="privacy-policy.html" class="text-indigo-400 hover:text-indigo-300 text-sm mr-4">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm mr-4">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for table of contents
+        document.querySelectorAll('.table-of-contents a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in table of contents
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('[id]');
+            const tocLinks = document.querySelectorAll('.table-of-contents a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('border-indigo-500', 'bg-indigo-900', 'bg-opacity-30');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('border-indigo-500', 'bg-indigo-900', 'bg-opacity-30');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
